@@ -1,0 +1,84 @@
+<html> 
+        <head> 
+            <title>Erika's X3DOM page</title> 			
+            <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script> 
+            <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link> 
+        </head> 
+        <body> 
+            <h1>Erika's X3Dom Graphics Lab</h1> 
+            <p> 
+                These are 4 Rotatable Objects. 
+            </p> 
+        </body> 
+    </html> 
+
+<x3d width='600px' height='400px'> 
+           <scene> 
+
+           <script> 
+               function changeColor()
+               {
+	         if(document.getElementById("color").getAttribute('diffuseColor')=="0 1 0")
+	         document.getElementById("color").setAttribute('diffuseColor', '1 1 0');
+	         else
+	         document.getElementById("color").setAttribute('diffuseColor', '0 1 0');
+               }
+           </script> 
+            <directionalLight id="directional" direction='0 -1 0' on ="TRUE" intensity='1.0' shadowIntensity='0.5'  shadowCascades="1" shadowFilterSize="16" shadowMapSize="512">
+            </directionalLight>
+
+            <transform translation='0 -5.5 0' rotation='1 0 0 -1.57'>
+                <shape>
+                    <appearance><material diffuseColor='0.5 0.5 0.5'></material></appearance>                    
+                    <plane solid='false' size='16 16'></plane>
+                </shape>
+            </transform>
+
+
+
+               <shape onclick="changeColor();"> 
+	         <appearance> 
+	         <material diffuseColor='1 0 0'></material> 
+                 </appearance> 		
+                 <box></box> 
+               </shape> 
+
+               <transform translation='-2.5 0 0'> 
+               <shape> 
+	         <appearance> 
+	         <material id="color" diffuseColor='0 1 0'></material> 
+                 </appearance> 		
+                 <cone></cone> 
+               </shape> 
+               </transform>
+
+               <transform translation='2.5 0 0'> 
+               <shape onclick="alert('Sphere is clicked');"> 
+	         <appearance> 
+	          <material diffuseColor='0 0 1'></material> 
+                 </appearance> 		
+                 <sphere></sphere> 
+               </shape> 
+               </transform>
+
+             <transform translation='5 0 0'> 
+               <shape> 
+	         <appearance> 
+	          <material diffuseColor='0 1 1'></material> 
+                 </appearance> 		
+                 <cylinder></cylinder> 
+               </shape> 
+               </transform>
+
+             <shape>
+            <Transform translation="0 -12.5 0" rotation="1 0 0 -1.57">
+               <appearance><Material diffuseColor="0.7 0.7 0.7"></Material></appearance>
+
+               <Plane solid="false" size="50 50"></Plane>
+             </shape>
+            </Transform>
+
+
+
+           </scene> 
+         </x3d> 
